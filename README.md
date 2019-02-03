@@ -2,6 +2,13 @@
 A gststreamer launch bash script and supervisor configuration that allows a Raspberry Pi 3 to use the PS3 Eye to stream audio and video.
 
 ## Summary
+From Michael:
+# How to install dependencies
+Needs motion, gstreamer-1.0, and gstreamer1.0-pulseaudio, 
+pulseaudio, gstreamer1.0-plugins-good.
+Install w/ sudo apt-get install package on the raspberry pi. 
+
+
 I wanted to create a cheap baby monitor that was reliable and after a couple evenings fighting with various configurations, I ended up with the shell script and supervisord configuration included. I use gstreamer (which is awesome) and the gst-omx stuff for hardware video encoding on the PI.
 
 I tried using the ALSA stuff for audio, but kept running into an issue with the mixer. I added `snd_usb_audio ignore_ctl_error=1` to `/etc/modules` to try and avoid issues with the alsamixer, which kind of worked, but ultimately delivered extremely poor quality sound. Pulse Audio did the trick and I'm happy with the results there.
